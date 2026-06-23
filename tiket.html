@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FINALL_TIKET_BIGU_PREMIUM</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:Arial,sans-serif;
+background:linear-gradient(180deg,#13071d 0%,#1c0d29 50%,#13071d 100%);
+color:#fff;
+padding-bottom:110px
+}
+.hero::before{
+content:'';
+display:block;
+width:100%;
+height:220px;
+background:url('banner.png') center/cover no-repeat;
+border-radius:0 0 24px 24px;
+}
+.event-info{padding:22px 18px 10px}
+.event-info h1{font-size:22px;font-weight:900}
+.event-info h2{font-size:14px;color:#d8c9e8;margin-top:8px}
+.sub-title{font-size:18px;font-weight:800;margin-top:18px}
+.mini-title{font-size:13px;color:#cdb7df}
+.wrap{max-width:950px;margin:auto;padding:18px}
+.grid{display:grid;grid-template-columns:1fr;gap:18px}
+.card{
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,.08);
+border-radius:22px;
+padding:20px;
+}
+.ticket-card:hover{transform:translateY(-6px)}
+.badge{padding:8px 12px;border-radius:12px;font-size:11px;font-weight:700}
+.sold{background:#fee2e2;color:#b91c1c}
+.ready{background:#3b1f53;color:#ffb4f0}
+.low-stock{
+display:inline-block;margin-left:8px;
+background:#3b1f53;color:#ffb4f0;
+padding:6px 10px;border-radius:10px;font-size:11px
+}
+.ticket-divider{border-top:2px dashed rgba(255,255,255,.15);margin:18px 0}
+.ticket-row{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.price{
+font-size:28px;
+font-weight:900;
+color:#FFB4F0;
+text-shadow:0 0 20px rgba(255,180,240,.35);
+}
+.select-btn,.btn{
+background:linear-gradient(135deg,#A74FFF,#FF8FE5);
+color:#fff;border:none;cursor:pointer;font-weight:800
+}
+.select-btn{
+width:150px;height:50px;border-radius:12px
+}
+.qty.hidden{display:none}
+.qty{display:flex;gap:8px}
+.qty button{
+width:42px;height:42px;border:none;border-radius:10px;
+background:linear-gradient(135deg,#A74FFF,#FF8FE5);
+color:#fff;font-size:20px
+}
+.qty input{width:55px;text-align:center;border-radius:10px;border:none}
+.full-logo{padding:20px;max-width:900px;margin:auto}
+.full-logo img{
+width:100%;max-width:500px;display:block;margin:auto;
+filter:drop-shadow(0 0 30px rgba(255,143,229,.4));
+}
+.progress-wrap{margin-bottom:20px}
+.progress-text{font-size:12px;font-weight:700;color:#FFB4F0;margin-bottom:8px}
+.progress-bar{height:8px;background:rgba(255,255,255,.1);border-radius:50px;overflow:hidden}
+.progress-fill{height:100%;width:85%;background:linear-gradient(90deg,#A74FFF,#FF8FE5)}
+.sticky{
+position:fixed;left:0;right:0;bottom:0;
+background:rgba(19,7,29,.92);
+backdrop-filter:blur(25px);
+padding:16px;
+display:flex;justify-content:space-between;align-items:center
+}
+#total{font-size:26px;font-weight:900;color:#FFB4F0}
+.btn{padding:16px 24px;border-radius:14px}
+</style>
+</head>
+<body>
+
+<div class="hero"></div>
+
+<div class="event-info">
+<h1>BIGU FESTIVAL 2026 • MUSIK SAMBIL PIKNIK</h1>
+<h2>4–5 JULI 2026 • STADION MADYA GBK</h2>
+<div class="sub-title">Tiket Resmi</div>
+<div class="mini-title">Pilih Tiket Festival</div>
+</div>
+
+<div class="wrap">
+
+<div class="progress-wrap">
+<div class="progress-text">85% TIKET TERJUAL</div>
+<div class="progress-bar"><div class="progress-fill"></div></div>
+</div>
+
+<div class="grid">
+
+<div class="card"><span class="badge sold">EARLY BIRD SOLD OUT</span></div>
+
+<div class="card ticket-card">
+<span class="badge ready">DAY 1 PASS</span>
+<span class="low-stock">HAMPIR HABIS</span>
+<h2>Normal Price</h2>
+<div class="ticket-divider"></div>
+<div class="ticket-row">
+<div class="price">Rp225.000</div>
+<button class="select-btn" onclick="showQty('q1',this)">Pilih Tiket</button>
+<div id="q1" class="qty hidden">
+<button onclick="chg('d1',-1)">−</button>
+<input id="d1" value="0" readonly>
+<button onclick="chg('d1',1)">+</button>
+</div>
+</div>
+</div>
+
+<div class="card ticket-card">
+<span class="badge ready">DAY 2 PASS</span>
+<h2>Normal Price</h2>
+<div class="ticket-divider"></div>
+<div class="ticket-row">
+<div class="price">Rp225.000</div>
+<button class="select-btn" onclick="showQty('q2',this)">Pilih Tiket</button>
+<div id="q2" class="qty hidden">
+<button onclick="chg('d2',-1)">−</button>
+<input id="d2" value="0" readonly>
+<button onclick="chg('d2',1)">+</button>
+</div>
+</div>
+</div>
+
+<div class="card ticket-card">
+<span class="badge ready">2 DAY PASS</span>
+<h2>Normal Price</h2>
+<div class="ticket-divider"></div>
+<div class="ticket-row">
+<div class="price">Rp395.000</div>
+<button class="select-btn" onclick="showQty('q3',this)">Pilih Tiket</button>
+<div id="q3" class="qty hidden">
+<button onclick="chg('pass',-1)">−</button>
+<input id="pass" value="0" readonly>
+<button onclick="chg('pass',1)">+</button>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="full-logo"><img src="logo.png"></div>
+
+<div class="sticky">
+<div>
+<div id="qtyText">Jumlah (0 tiket)</div>
+<div id="total">Rp 0</div>
+</div>
+<button class="btn" onclick="checkout()">BELI TIKET</button>
+</div>
+
+<script>
+function chg(id,n){let e=document.getElementById(id);let v=parseInt(e.value)+n;if(v<0)v=0;if(v>10)v=10;e.value=v;update();}
+function update(){
+let a=+d1.value,b=+d2.value,c=+pass.value;
+let q=a+b+c,t=a*225000+b*225000+c*395000;
+qtyText.innerText='Jumlah ('+q+' tiket)';
+total.innerText='Rp '+t.toLocaleString('id-ID');
+localStorage.setItem('totalPembayaran',t);
+localStorage.setItem('jumlahTiket',q);
+}
+function showQty(id,btn){document.getElementById(id).classList.remove('hidden');btn.style.display='none';}
+function checkout(){if((+d1.value + +d2.value + +pass.value)<1){alert('Pilih tiket terlebih dahulu');return;}location.href='form.html';}
+</script>
+
+</body>
+</html>
