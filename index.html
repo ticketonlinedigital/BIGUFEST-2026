@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>BIGU FESTIVAL 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
+body{background:#13071d;color:#fff;overflow-x:hidden}
+.hero{min-height:100vh;background:linear-gradient(rgba(20,7,29,.55),rgba(20,7,29,.9)),url('crowd.jpg') center/cover;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px}
+.logo{max-width:520px;width:90%}
+h1{font-size:clamp(2.8rem,8vw,5rem)}
+.countdown{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:25px 0}
+.box{background:rgba(255,255,255,.08);padding:15px;border-radius:20px;min-width:90px}
+.box span{font-size:2rem;font-weight:800;color:#ffb4f0}
+.btn{display:inline-block;padding:16px 34px;background:linear-gradient(90deg,#9d4edd,#ff7ee8);color:#fff;text-decoration:none;border-radius:999px;font-weight:700}
+section{padding:80px 20px}
+.title{text-align:center;margin-bottom:35px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;max-width:1200px;margin:auto}
+.card{background:rgba(255,255,255,.06);padding:25px;border-radius:24px}
+.featured{border:2px solid #ff8cf8}
+.price{font-size:2.5rem;font-weight:800;color:#ffb4f0}
+.poster{display:block;width:100%;max-width:1100px;margin:auto;border-radius:24px}
+.marquee{overflow:hidden;white-space:nowrap;background:#1d0c2a;padding:20px 0}
+.marquee div{display:inline-block;animation:m 18s linear infinite}
+.marquee span{margin-right:40px;font-weight:800;color:#f0b5ff}
+@keyframes m{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px;max-width:1200px;margin:auto}
+.gallery img{width:100%;height:240px;object-fit:cover;border-radius:20px}
+.faq{max-width:900px;margin:auto}
+.q{background:rgba(255,255,255,.06);padding:18px;border-radius:16px;margin-bottom:10px;cursor:pointer}
+.a{display:none;padding:10px 0}
+.wa{position:fixed;right:20px;bottom:90px;background:#25D366;color:#fff;text-decoration:none;width:65px;height:65px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.sticky{position:fixed;bottom:0;left:0;width:100%;padding:12px;background:#13071d}
+.sticky a{display:block;text-align:center;padding:15px;border-radius:999px;background:linear-gradient(90deg,#9d4edd,#ff7ee8);color:#fff;text-decoration:none;font-weight:700}
+footer{text-align:center;padding:60px 20px;background:#0d0513}
+</style>
+</head>
+<body>
+
+<section class="hero">
+<div>
+<img src="logo.png" class="logo">
+<h1>MUSIK SAMBIL PIKNIK</h1>
+<p>4-5 JULI 2026 • STADION MADYA GBK</p>
+<div class="countdown">
+<div class="box"><span id="d">0</span><br>Hari</div>
+<div class="box"><span id="h">0</span><br>Jam</div>
+<div class="box"><span id="m">0</span><br>Menit</div>
+<div class="box"><span id="s">0</span><br>Detik</div>
+</div>
+<a href="tiket.html" class="btn">BELI TIKET SEKARANG</a>
+</div>
+</section>
+
+<section><div class="title"><h2>HARGA TIKET</h2></div>
+<div class="grid">
+<div class="card"><h3>DAY 1</h3><div class="price">310K</div></div>
+<div class="card featured"><h3>2 DAY PASS</h3><div class="price">410K</div></div>
+<div class="card"><h3>DAY 2</h3><div class="price">310K</div></div>
+</div></section>
+
+<section><div class="title"><h2>FULL LINEUP</h2></div>
+<img src="poster.png" class="poster"></section>
+
+<div class="marquee"><div>
+<span>TULUS</span><span>ROSSA</span><span>HIVI!</span><span>RAISA</span><span>NADIN AMIZAH</span><span>SAL PRIADI</span>
+</div></div>
+
+<section><div class="title"><h2>BIGU MOMENTS</h2></div>
+<div class="gallery"><img src="crowd.jpg"><img src="poster.png"><img src="crowd.jpg"></div>
+</section>
+
+<section><div class="title"><h2>FAQ</h2></div>
+<div class="faq">
+<div class="q">Apakah tiket bisa refund?<div class="a">Tidak dapat direfund.</div></div>
+<div class="q">Bagaimana masuk venue?<div class="a">Gunakan QR E-Ticket.</div></div>
+</div>
+</section>
+
+<footer><img src="logo.png" style="max-width:250px;width:80%"><h3>BIGU FESTIVAL 2026</h3></footer>
+
+<a class="wa" href="https://wa.me/6282379977693">💬</a>
+<div class="sticky"><a href="tiket.html">BELI TIKET SEKARANG</a></div>
+
+<script>
+const t=new Date("2026-07-04T00:00:00").getTime();
+setInterval(()=>{let g=t-Date.now();d.innerHTML=Math.floor(g/86400000);h.innerHTML=Math.floor(g/3600000)%24;m.innerHTML=Math.floor(g/60000)%60;s.innerHTML=Math.floor(g/1000)%60},1000);
+document.querySelectorAll('.q').forEach(x=>x.onclick=()=>{let a=x.querySelector('.a');a.style.display=a.style.display==='block'?'none':'block';});
+</script>
+</body></html>
